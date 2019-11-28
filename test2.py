@@ -373,6 +373,101 @@ def Manchester():
     y1 = 0
     y2 = 0
 
+def AMI():
+    # ilk 1 +v den başlar
+    binary = alinanmetin()
+    datarate =alinandatarate()
+    #inary = "010010" 
+    bayrak = True    
+    w = Canvas(anapencere, width=800, height=200)
+    w.configure(background='white')
+    w.pack()
+    w.create_line(0,10,800,10, dash=(4, 2))
+    w.create_line(0,100,800,100,  dash=(4, 2))
+    w.create_line(0,190,800,190,  dash=(4, 2))
+    for i in range(1,10):
+        w.create_line(50*i,10,50*i,190, dash=(4,2))
+    bayrak = True
+   # true ust 
+   # fasle alt
+    if binary[0] == "1":
+        #baslangıc çizgisi
+        x1 = 25
+        y1 = 100
+        x2 = 50
+        y2 = 100
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        x1 = x2 
+        y1 = y2
+        #ortadan üste yarım dik
+        y2 = y1 -25
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        y1 = y2
+        #soldan sağa 50
+        x2 = x1 + 50
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        x1 = x2
+        #üstten ortaya yarım dik
+        y2 = y1 +25
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        y1 = y2
+        bayrak = False
+ 
+
+    elif binary[0] == "0":
+        x1 = 50
+        y1 = 100
+        x2 = 100
+        y2 = 100
+        w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+        x1 = x2
+        y1 = y2
+
+
+
+    for i in range(1,len(binary)):
+        if  binary[i] == "1" and bayrak == True:
+            #ortadan üste yarım dik
+            y2 = y1 -25
+            w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+            y1 = y2
+            #soldan sağa 50
+            x2 = x1 + 50
+            w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+            x1 = x2
+            #üstten ortaya yarım dik
+            y2 = y1 +25
+            w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+            y1 = y2
+            bayrak = False
+
+        elif binary[i] == "1" and bayrak == False:
+            #ortadan aşağı yarım dik
+            y2 = y1 + 25
+            w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+            y1 = y2
+            #soldan sağa 50
+            x2 = x1 + 50
+            w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+            x1 = x2
+            #aşağodan ortaya yarım dik
+            y2 = y1 - 25
+            w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+            y1 = y2
+            bayrak = True
+
+        elif binary[i] == "0":
+            x2 +=50
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2
+            y1 = y2
+
+
+    x1 = 0
+    x2 = 0
+    y1 = 0
+    y2 = 0
+
 def NRZL_Plotter():
        
     x = [1, 2, 2,3, 4, 5, 6, 7, 8, 9, 10] 
@@ -424,4 +519,14 @@ buton4=Button(anapencere)
 buton4.config(text="Manchester")
 buton4.config(command=Manchester)
 buton4.pack()
+
+buton5=Button(anapencere)
+buton5.config(text="Dif Manchester")
+buton5.config(command=Manchester)
+buton5.pack()
+
+buton6=Button(anapencere)
+buton6.config(text="AMI")
+buton6.config(command=AMI)
+buton6.pack()
 anapencere.mainloop()
