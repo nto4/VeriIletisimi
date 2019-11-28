@@ -16,10 +16,6 @@ def alinanmetin():
     yazi.config(text="Girilen metnin binary karşılığı: %s" %str1)
     return str1
 
- 
-
-    
-
 def Unipolar():
     binary = alinanmetin()
     #binary = "1011001101"   
@@ -28,14 +24,16 @@ def Unipolar():
     y = [-1,-1,1,1,1,0,0,1,1,-1,-1]   
     w = Canvas(anapencere, width=800, height=200)
     w.pack()
-    w.create_line(0,10,800,10)# kısa olan y sıfır tarafı
-    w.create_line(0,190,800,190)
+    w.create_line(0,10,800,10, dash=(4, 2))
+    w.create_line(0,100,800,100,  dash=(4, 2))
+    w.create_line(0,190,800,190,  dash=(4, 2))
     if binary[0] == "1":
         x1 = 50
         y1 = 50
         x2 = 100
         y2 = 50
-        w.create_line(x1, y1, x2, y2)
+        w.create_line(x1, y1, x2, y2 ,fill="#476042", width=3 )
+         #,fill="#476042", width=3
         x1 = x2 
         y1 = y2
     elif binary[0] == "0":
@@ -43,44 +41,48 @@ def Unipolar():
         y1 = 100
         x2 = 100
         y2 = 100
-        w.create_line(x1, y1, x2, y2)
+        w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
         x1 = x2
         y1 = y2
-        print("ilk 0")
+
 
     for i in range(1,len(binary)):
         if  binary[i-1] == "1" and binary[i] == "1":
             x2 += 50
-            w.create_line(x1, y1, x2, y2)
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
             x1 = x2 
             y1 = y2
-            print("1 den 1 ")
+
         elif  binary[i-1] == "0" and binary[i] == "1":
             y2 -= 50
-            w.create_line(x1, y1, x2, y2)
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
             x1 = x2
             y1 = y2
             x2 += 50
-            w.create_line(x1, y1, x2, y2)
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
             x1 = x2 
             y1 = y2
-            print("0 dan 1")
+
         elif  binary[i-1] == "1" and binary[i] == "0":
             y2 += 50
-            w.create_line(x1, y1, x2, y2)
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
             x1 = x2 
             y1 = y2 
             x2 += 50
-            w.create_line(x1, y1, x2, y2)
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
             x1 = x2 
             y1 = y2
-            print(" 1 den 0")
+ 
         elif binary[i-1] == "0" and binary[i] == "0":
             x2 +=50
-            w.create_line(x1,y1,x2,y2)
+            w.create_line(x1,y1,x2,y2,fill="#476042", width=3)
             x1 = x2 
             y1 = y2
-            print("0 dan 0")
+
+    x1 = 0
+    x2 = 0
+    y1 = 0
+    y2 = 0
 
 
 
@@ -94,8 +96,75 @@ def Unipolar():
     plt.show() 
     """
     
-
 def NRZL():
+    binary = alinanmetin()
+    #binary = "110011"   
+    print(binary)
+    x = [1, 2, 2,3, 4, 5, 6, 7, 8, 9, 10] 
+    y = [-1,-1,1,1,1,0,0,1,1,-1,-1]   
+    w = Canvas(anapencere, width=800, height=200)
+    w.pack()
+    w.create_line(0,10,800,10, dash=(4, 2))
+    w.create_line(0,100,800,100,  dash=(4, 2))
+    w.create_line(0,190,800,190,  dash=(4, 2))
+    if binary[0] == "1":
+        x1 = 50
+        y1 = 75
+        x2 = 100
+        y2 = 75
+        w.create_line(x1, y1, x2, y2 ,fill="#476042", width=3 )
+         #,fill="#476042", width=3
+        x1 = x2 
+        y1 = y2
+    elif binary[0] == "0":
+        x1 = 50
+        y1 = 125
+        x2 = 100
+        y2 = 125
+        w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
+        x1 = x2
+        y1 = y2
+
+
+    for i in range(1,len(binary)):
+        if  binary[i-1] == "1" and binary[i] == "1":
+            x2 += 50
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
+            x1 = x2 
+            y1 = y2
+
+        elif  binary[i-1] == "0" and binary[i] == "1":
+            y2 -= 50
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
+            x1 = x2
+            y1 = y2
+            x2 += 50
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
+            x1 = x2 
+            y1 = y2
+
+        elif  binary[i-1] == "1" and binary[i] == "0":
+            y2 += 50
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
+            x1 = x2 
+            y1 = y2 
+            x2 += 50
+            w.create_line(x1, y1, x2, y2,fill="#476042", width=3)
+            x1 = x2 
+            y1 = y2
+ 
+        elif binary[i-1] == "0" and binary[i] == "0":
+            x2 +=50
+            w.create_line(x1,y1,x2,y2,fill="#476042", width=3)
+            x1 = x2 
+            y1 = y2
+
+    x1 = 0
+    x2 = 0
+    y1 = 0
+    y2 = 0
+
+def NRZL_Plotter():
        
     x = [1, 2, 2,3, 4, 5, 6, 7, 8, 9, 10] 
     y = [-1,-1,1,1,1,0,0,1,1,-1,-1]   
@@ -109,17 +178,8 @@ def NRZL():
 def cagir():
     call(["python", "drawline.py"])
 
-    
-    
-
 anapencere=Tk()
 anapencere.geometry('1000x800')
-
-
-
-
-
-
 yazi=Label(anapencere)
 yazi.config(text="Buraya girilen metin gelecek.")
 yazi.pack()
@@ -136,4 +196,10 @@ buton2=Button(anapencere)
 buton2.config(text="NRZL")
 buton2.config(command=NRZL)
 buton2.pack()
+
+
+buton3=Button(anapencere)
+buton3.config(text="NRZL-Plotter")
+buton3.config(command=NRZL_Plotter)
+buton3.pack()
 anapencere.mainloop()
