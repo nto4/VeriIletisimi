@@ -30,8 +30,6 @@ def Unipolar():
     binary = alinanmetin()
     datarate =alinandatarate()
     #binary = "1011001101"   
-    x = [1, 2, 2,3, 4, 5, 6, 7, 8, 9, 10] 
-    y = [-1,-1,1,1,1,0,0,1,1,-1,-1]   
     w = Canvas(anapencere, width=800, height=200)
     w.pack()
     w.create_line(0,10,800,10, dash=(4, 2))
@@ -110,8 +108,7 @@ def NRZL():
     binary = alinanmetin()
     datarate =alinandatarate()
     #binary = "110011"
-    x = [1, 2, 2,3, 4, 5, 6, 7, 8, 9, 10] 
-    y = [-1,-1,1,1,1,0,0,1,1,-1,-1]   
+
     w = Canvas(anapencere, width=800, height=200)
     w.pack()
     w.create_line(0,10,800,10, dash=(4, 2))
@@ -251,6 +248,131 @@ def NRZI():
     y1 = 0
     y2 = 0
 
+def Manchester():
+    binary = alinanmetin()
+    datarate =alinandatarate()
+    #binary = "010011"  
+    w = Canvas(anapencere, width=800, height=200)
+    w.pack()
+    w.create_line(0,10,800,10, dash=(4, 2))
+    w.create_line(0,100,800,100,  dash=(4, 2))
+    w.create_line(0,190,800,190,  dash=(4, 2))
+  
+    for i in range(1,10):
+        w.create_line(50*i,10,50*i,190, dash=(4,2))
+    if binary[0] == "0":
+        #üst
+        x1 = 50
+        y1 = 75
+        x2 = 75
+        y2 = 75
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+         #,fill="#0000ff", width=3
+        x1 = x2 
+        y1 = y2
+        #üstten alta dik
+        y2 = y1 + 50
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        y1 = y2
+        #alt
+        x2 = x1 + 25
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        x1 = x2
+    elif binary[0] == "1":
+        #alt
+        x1 = 50
+        y1 = 125
+        x2 = 75
+        y2 = 125
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+         #,fill="#0000ff", width=3
+        x1 = x2 
+        y1 = y2
+        #alttan üste dik
+        y2 = y1 - 50
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        y1 = y2
+        #üst
+        x2 = x1 + 25
+        w.create_line(x1, y1, x2, y2 ,fill="#0000ff", width=3 )
+        x1 = x2
+
+    for i in range(1,len(binary)):
+        if  binary[i-1] == "0" and binary[i] == "0":
+            #alttan üste dik
+            y2 = y1 - 50
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2 
+            y1 = y2
+            #üst
+            x2 = x1 + 25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2
+            #üstten alta dik
+            y2 = y1 + 50
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            y1 = y2
+            #alt
+            x2 = x1 +25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2 
+
+        elif binary[i-1] == "1" and binary[i] == "1":
+            #üstten alta dik
+            y2 = y1 + 50
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            y1 = y2
+            #alt
+            x2 = x1 +25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2
+            #alttan üste dik
+            y2 = y1 - 50
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2 
+            y1 = y2
+            #üst
+            x2 = x1 + 25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2
+            
+
+        elif  binary[i-1] == "1" and binary[i] == "0":
+            #üst
+            x2 = x1 + 25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2
+            #üstten alta dik
+            y2 = y1 + 50
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            y1 = y2
+            #alt
+            x2 = x1 +25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2 
+
+        elif  binary[i-1] == "0" and binary[i] == "1":
+            #alt
+            x2 = x1 +25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2
+            #alttan üste dik
+            y2 = y1 - 50
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2 
+            y1 = y2
+            #üst
+            x2 = x1 + 25
+            w.create_line(x1, y1, x2, y2,fill="#0000ff", width=3)
+            x1 = x2
+ 
+
+
+    x1 = 0
+    x2 = 0
+    y1 = 0
+    y2 = 0
+
 def NRZL_Plotter():
        
     x = [1, 2, 2,3, 4, 5, 6, 7, 8, 9, 10] 
@@ -297,4 +419,9 @@ buton3=Button(anapencere)
 buton3.config(text="NRZI")
 buton3.config(command=NRZI)
 buton3.pack()
+
+buton4=Button(anapencere)
+buton4.config(text="Manchester")
+buton4.config(command=Manchester)
+buton4.pack()
 anapencere.mainloop()
