@@ -24,10 +24,11 @@ def alinandatarate():
 
 def Unipolar():
     binary = alinanmetin()
-    datarate =alinandatarate()
-    datarate = int(datarate)
+    k =alinandatarate()
+    k = int(k)
+    #datarate = int(datarate)
     #binary = "01101001"   
-    #datarate = 8
+    datarate = len(binary)
     w = Canvas(anapencere, width=1000, height=200)
     w.configure(background='white')
     #Bitleri çizme ekleme
@@ -44,8 +45,12 @@ def Unipolar():
     w.create_line(0,10,1000,10, dash=(4, 2))
     w.create_line(0,100,1000,100,  dash=(4, 2))
     w.create_line(0,190,1000,190,  dash=(4, 2))
+    w.create_line(50,10,50,190, dash=(4,2))
+    #w.create_line(100,10,100,190, dash=(4,2))
+
     for i in range(1,20):
-        w.create_line(50*i,10,50*i,190, dash=(4,2))
+        w.create_line((50+(50*i*k)),10,(50+(50*i*k)),190, dash=(4,2))
+    
     if binary[0] == "1":
         x1 = 50
         y1 = 50
@@ -117,10 +122,11 @@ def Unipolar():
     
 def NRZL():
     binary = alinanmetin()
-    datarate =alinandatarate()
-    datarate = int(datarate)
-    #binary = "110011"
-
+    k =alinandatarate()
+    k = int(k)
+    #datarate = int(datarate)
+    #binary = "01101001"   
+    datarate = len(binary)
     w = Canvas(anapencere, width=1000, height=200)
     w.configure(background='white')
     #Bitleri çizme ekleme
@@ -131,12 +137,18 @@ def NRZL():
     sp += 50
     w.create_text(sp,25,fill="red",font="Times 20 italic bold",text=binary[-1] )
     #
+
+
     w.pack()
     w.create_line(0,10,1000,10, dash=(4, 2))
     w.create_line(0,100,1000,100,  dash=(4, 2))
     w.create_line(0,190,1000,190,  dash=(4, 2))
+    w.create_line(50,10,50,190, dash=(4,2))
+    #w.create_line(100,10,100,190, dash=(4,2))
+
     for i in range(1,20):
-        w.create_line(50*i,10,50*i,190, dash=(4,2))
+        w.create_line((50+(50*i*k)),10,(50+(50*i*k)),190, dash=(4,2))
+        
     if binary[0] == "0":
         x1 = 50
         y1 = 75
@@ -195,12 +207,13 @@ def NRZL():
     y2 = 0
 
 def NRZI():
-    #İlk bit 0 sa +v dan başla // ilk bit 1 se -v den başla
     binary = alinanmetin()
-    datarate =alinandatarate()
-    datarate = int(datarate)
-    #binary = "01001110" 
-    bayrak = True    
+    k =alinandatarate()
+    k = int(k)
+    #datarate = int(datarate)
+    #binary = "01101001"   
+    bayrak = True
+    datarate = len(binary)
     w = Canvas(anapencere, width=1000, height=200)
     w.configure(background='white')
     #Bitleri çizme ekleme
@@ -211,12 +224,17 @@ def NRZI():
     sp += 50
     w.create_text(sp,25,fill="red",font="Times 20 italic bold",text=binary[-1] )
     #
+
+
     w.pack()
     w.create_line(0,10,1000,10, dash=(4, 2))
     w.create_line(0,100,1000,100,  dash=(4, 2))
     w.create_line(0,190,1000,190,  dash=(4, 2))
+    w.create_line(50,10,50,190, dash=(4,2))
+    #w.create_line(100,10,100,190, dash=(4,2))
+
     for i in range(1,20):
-        w.create_line(50*i,10,50*i,190, dash=(4,2))
+        w.create_line((50+(50*i*k)),10,(50+(50*i*k)),190, dash=(4,2))
    # true ust 
    # fasle alt
     if binary[0] == "1":
@@ -284,8 +302,11 @@ def NRZI():
 
 def Manchester():
     binary = alinanmetin()
-    datarate =alinandatarate()
-    datarate = int(datarate)
+    k =alinandatarate()
+    k = int(k)
+    #datarate = int(datarate)
+    #binary = "01101001"   
+    datarate = len(binary)
     w = Canvas(anapencere, width=1000, height=200)
     w.configure(background='white')
     #Bitleri çizme ekleme
@@ -296,12 +317,17 @@ def Manchester():
     sp += 50
     w.create_text(sp,25,fill="red",font="Times 20 italic bold",text=binary[-1] )
     #
+
+
     w.pack()
     w.create_line(0,10,1000,10, dash=(4, 2))
     w.create_line(0,100,1000,100,  dash=(4, 2))
     w.create_line(0,190,1000,190,  dash=(4, 2))
+    w.create_line(50,10,50,190, dash=(4,2))
+    #w.create_line(100,10,100,190, dash=(4,2))
+
     for i in range(1,20):
-        w.create_line(50*i,10,50*i,190, dash=(4,2))
+        w.create_line((50+(50*i*k)),10,(50+(50*i*k)),190, dash=(4,2))
     bayrak = True
   
     if binary[0] == "0":
@@ -418,10 +444,11 @@ def Manchester():
 
 def DifMacnhester():
     binary = alinanmetin()
-    datarate =alinandatarate()
-    datarate = int(datarate)
-    # Bit 0 için değişim //  Bit 1 için değişim yok 
-    #binary = "010011"  
+    k =alinandatarate()
+    k = int(k)
+    #datarate = int(datarate)
+    #binary = "01101001"   
+    datarate = len(binary)
     w = Canvas(anapencere, width=1000, height=200)
     w.configure(background='white')
     #Bitleri çizme ekleme
@@ -434,13 +461,15 @@ def DifMacnhester():
     #
 
 
-    #
     w.pack()
     w.create_line(0,10,1000,10, dash=(4, 2))
     w.create_line(0,100,1000,100,  dash=(4, 2))
     w.create_line(0,190,1000,190,  dash=(4, 2))
+    w.create_line(50,10,50,190, dash=(4,2))
+    #w.create_line(100,10,100,190, dash=(4,2))
+
     for i in range(1,20):
-        w.create_line(50*i,10,50*i,190, dash=(4,2))
+        w.create_line((50+(50*i*k)),10,(50+(50*i*k)),190, dash=(4,2))
    # true ust 
    # fasle alt
     if binary[0] == "1":
@@ -580,11 +609,12 @@ def DifMacnhester():
     y2 = 0
 
 def AMI():
-    # ilk 1 +v den başlar
     binary = alinanmetin()
-    datarate =alinandatarate()
-    #binary = "010010" 
-    bayrak = True    
+    k =alinandatarate()
+    k = int(k)
+    #datarate = int(datarate)
+    #binary = "01101001"   
+    datarate = len(binary)
     w = Canvas(anapencere, width=1000, height=200)
     w.configure(background='white')
     #Bitleri çizme ekleme
@@ -595,12 +625,17 @@ def AMI():
     sp += 50
     w.create_text(sp,25,fill="red",font="Times 20 italic bold",text=binary[-1] )
     #
+
+
     w.pack()
     w.create_line(0,10,1000,10, dash=(4, 2))
     w.create_line(0,100,1000,100,  dash=(4, 2))
     w.create_line(0,190,1000,190,  dash=(4, 2))
+    w.create_line(50,10,50,190, dash=(4,2))
+    #w.create_line(100,10,100,190, dash=(4,2))
+
     for i in range(1,20):
-        w.create_line(50*i,10,50*i,190, dash=(4,2))
+        w.create_line((50+(50*i*k)),10,(50+(50*i*k)),190, dash=(4,2))
     bayrak = True
    # true ust 
    # fasle alt
@@ -707,7 +742,7 @@ giris=Entry(anapencere)
 giris.pack()
 
 yazi1=Label(anapencere)
-yazi1.config(text="Buraya girilen data rate gelecek data rate girilen metin boyutundan büyük olamaz")
+yazi1.config(text="Buraya girilen data rate gelecek & data rate girilen metin boyutundan büyük olamaz")
 yazi1.pack()
 
 giris1=Entry(anapencere)
